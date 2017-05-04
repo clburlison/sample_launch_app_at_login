@@ -26,20 +26,20 @@ This is a sample git repo to walk through the process of launching a website at 
         cd sample_launch_app_at_login
 
 1. Make customizations to launchWebsite/build-info.plist:
-  * The `identifier` & `name` keys
+    * The `identifier` & `name` keys
 
 1. Make customizations to launchWebsite/payload/Library/LaunchAgent/com.github.launchWebsite.plist:
-  * The `Label`, & `ProgramArguments` keys
+    * The `Label`, & `ProgramArguments` keys
 
-Please us a real text editor: Atom, TextMate, Sublime, nano, vi, etc. Basically anything but TextEdit (it's bad...real bad!)
+    Please use a real text editor: Atom, TextMate, Sublime, nano, vi, etc. Basically anything but TextEdit (it's bad...real bad!)
 
 1. Now you can create the a native macOS package that will allow you to easily deploy this setting to multiple computers in a repeatable manner.
 
-Assuming you're still in the `sample_launch_app_at_login` directory
+    Assuming you're still in the `sample_launch_app_at_login` directory
 
         munkipkg launchWebsite
 
-This will output a .pkg file to the build folder.
+    This will output a .pkg file to the build folder.
 
 
 # Why and how this works
