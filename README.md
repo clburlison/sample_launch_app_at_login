@@ -7,30 +7,29 @@ This is a sample git repo to walk through the process of launching a website at 
 
 1. Download `munkipkg`
 
-    curl -L https://raw.githubusercontent.com/munki/munki-pkg/master/munkipkg -o /usr/local/bin/munkipkg
+        curl -L https://raw.githubusercontent.com/munki/munki-pkg/master/munkipkg -o /usr/local/bin/munkipkg
 
 1. Set executable permissions on the `munkipkg` script
 
-    chmod +x /usr/local/bin/munkipkg
+        chmod +x /usr/local/bin/munkipkg
 
 1. (Potentially optional) Install command line tools. This will allow you to build a package.
 
-    xcode-select --install
+        xcode-select --install
 
 1. Download this git repo
 
-    git clone https://github.com/clburlison/sample_launch_app_at_login.git
+        git clone https://github.com/clburlison/sample_launch_app_at_login.git
 
 1. Change directory into the downloaded folder
 
-    cd sample_launch_app_at_login
+        cd sample_launch_app_at_login
 
-1. Make customizations. The follow two files should be edited to your taste:
+1. Make customizations to launchWebsite/build-info.plist:
+  * The `identifier` & `name` keys
 
-    * launchWebsite/build-info.plist
-      * The `identifier` & `name` keys
-    * launchWebsite/payload/Library/LaunchAgent/com.github.launchWebsite.plist
-      * The `Label`, `KeepAlive`, & `ProgramArguments` keys
+1. Make customizations to launchWebsite/payload/Library/LaunchAgent/com.github.launchWebsite.plist:
+  * The `Label`, & `ProgramArguments` keys
 
 Please us a real text editor: Atom, TextMate, Sublime, nano, vi, etc. Basically anything but TextEdit (it's bad...real bad!)
 
@@ -38,7 +37,7 @@ Please us a real text editor: Atom, TextMate, Sublime, nano, vi, etc. Basically 
 
 Assuming you're still in the `sample_launch_app_at_login` directory
 
-    munkipkg launchWebsite
+        munkipkg launchWebsite
 
 This will output a .pkg file to the build folder.
 
@@ -53,7 +52,7 @@ This will output a .pkg file to the build folder.
 ## LaunchAgent bits
 * We are using a LaunchAgent so this process runs under the context of the logged in user
 * We are using the open command line tool
-    * Note we are using the full path /bin/usr/open
-    * We provide it a url to open
-    * Then the `-a` flag to open with the specific application
-    * Then the specific app, Safari in this example 
+* Note we are using the full path /bin/usr/open
+    1. We provide it a url to open
+    1. Then the `-a` flag to open with the specific application
+    1. Then the specific app, Safari in this example 
